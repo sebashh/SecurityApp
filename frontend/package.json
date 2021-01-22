@@ -1,0 +1,26 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "author": "Sebas Tillema <s1113260@student.hsleiden.nl>",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon ./bin/wwww"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "http-errors": "1.7.2",
+    "ioredis": "^4.19.4",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "pug": "^3.0.0",
+    "redis": "^3.0.2",
+    "socket.io": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "description": "frontend"
+}

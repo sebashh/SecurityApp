@@ -1,0 +1,10 @@
+extends layout
+
+block layout-content
+  script(src='https://www.gstatic.com/charts/loader.js')
+  script(src='/socket.io/socket.io.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  script
+    include ../public/javascripts/canvas.js
+  div.View
+    div#chart_div

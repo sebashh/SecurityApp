@@ -1,0 +1,45 @@
+version: "3.8"
+services:
+  frontend:
+    build: ./frontend/ .
+    ports:
+      - 5000:5000
+    environment:
+      - PORT=80
+      - REDIS_URL=redis://redis-database
+    networks:
+      - nginx-proxy
+    volumes:
+    - ./frontend/:/usr/src/app
+    restart: on-failure
+
+  proxy:
+    build: ./backend/ .
+    ports:
+      - 80:80
+    networks:
+      - nginx-proxy
+#    restart: on-failure
+
+#  redis:
+#    build: ./redis/ .
+#    ports:
+#    - 6379:6379
+#    networks:
+#      - nginx-proxy
+  redis:
+    image: redis
+    container_name: redis-database
+    ports:
+      - 6379:6379
+    volumes:
+      - .redis.conf:/redis.conf
+    command: [ "redis-server", "/redis.conf" ]
+    expose:
+      - 6379
+    networks:
+      - nginx-proxy
+    restart: on-failure
+
+networks:
+  nginx-proxy:
